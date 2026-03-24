@@ -1,0 +1,49 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install & build
+        working-directory: frontend
+        run: |
+          npm install
+          npm run build
+
+      # Copy markdown posts + figures into the dist for GitHub Pages
+      - name: Copy posts and figures into dist
+        run: |
+          mkdir -p frontend/dist/posts frontend/dist/figures
+          [ -d posts ] && cp -r posts/* frontend/dist/posts/ || true
+          [ -d frontend/public/figures ] && cp -r frontend/public/figures/* frontend/dist/figures/ || true
+
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/dist/
+      - id: deployment
+        uses: actions/deploy-pages@v4

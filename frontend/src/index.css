@@ -1,0 +1,111 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: #fafaf8;
+  color: #1a1a1a;
+  line-height: 1.7;
+}
+
+a { color: #1a6b3c; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav-logo { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.5px; }
+.nav-tagline { font-size: 0.78rem; color: #6b7280; font-family: sans-serif; }
+
+/* Home */
+.home { max-width: 860px; margin: 0 auto; padding: 48px 24px; }
+.home-hero { margin-bottom: 48px; border-bottom: 1px solid #e5e5e5; padding-bottom: 32px; }
+.home-hero h1 { font-size: 2.2rem; margin-bottom: 12px; letter-spacing: -1px; }
+.home-hero p { color: #4b5563; font-family: sans-serif; font-size: 0.95rem; max-width: 560px; }
+
+.section-title {
+  font-size: 0.75rem;
+  font-family: sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Post card */
+.post-card {
+  display: flex;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+}
+.post-card:hover .post-title { color: #1a6b3c; }
+.post-card-body { flex: 1; }
+.post-meta { font-size: 0.75rem; font-family: sans-serif; color: #6b7280; margin-bottom: 6px; }
+.post-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; line-height: 1.4; }
+.post-excerpt { font-size: 0.85rem; color: #4b5563; font-family: sans-serif; line-height: 1.5; }
+.post-badge {
+  display: inline-block;
+  background: #ecfdf5;
+  color: #065f46;
+  font-size: 0.7rem;
+  font-family: sans-serif;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-top: 8px;
+  font-weight: 600;
+}
+.post-badge.warn { background: #fff7ed; color: #9a3412; }
+.post-thumb {
+  width: 140px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 4px;
+  background: #f3f4f6;
+  flex-shrink: 0;
+}
+
+/* Post page */
+.post-page { max-width: 700px; margin: 0 auto; padding: 48px 24px 96px; }
+.post-page h1 { font-size: 2rem; line-height: 1.3; margin-bottom: 12px; letter-spacing: -0.5px; }
+.post-page-meta { font-size: 0.8rem; font-family: sans-serif; color: #6b7280; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid #e5e5e5; }
+.post-page-meta span { margin-right: 16px; }
+
+.post-content { font-size: 1rem; line-height: 1.85; }
+.post-content h2 { font-size: 1.35rem; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #e5e5e5; }
+.post-content h3 { font-size: 1.1rem; margin: 28px 0 10px; }
+.post-content p { margin-bottom: 18px; }
+.post-content img { max-width: 100%; border-radius: 6px; margin: 24px 0; border: 1px solid #e5e5e5; }
+.post-content table { width: 100%; border-collapse: collapse; margin: 24px 0; font-family: sans-serif; font-size: 0.85rem; }
+.post-content th { background: #f9fafb; font-weight: 600; }
+.post-content td, .post-content th { border: 1px solid #e5e5e5; padding: 8px 12px; text-align: left; }
+.post-content hr { margin: 32px 0; border: none; border-top: 1px solid #e5e5e5; }
+.post-content code { background: #f3f4f6; padding: 1px 5px; border-radius: 3px; font-size: 0.85em; }
+.post-content blockquote { border-left: 3px solid #1a6b3c; padding-left: 16px; color: #4b5563; margin: 24px 0; font-style: italic; }
+.post-content ul, .post-content ol { margin: 0 0 18px 24px; }
+.post-content li { margin-bottom: 4px; }
+
+/* Empty state */
+.empty { text-align: center; padding: 80px 24px; color: #6b7280; font-family: sans-serif; }
+.empty h2 { font-size: 1.3rem; margin-bottom: 12px; color: #374151; }
+.empty p { font-size: 0.9rem; max-width: 420px; margin: 0 auto; }
+
+/* Stat pills */
+.stat-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.stat-pill {
+  display: flex; align-items: center; gap: 5px;
+  background: #f9fafb; border: 1px solid #e5e7eb;
+  border-radius: 20px; padding: 3px 10px;
+  font-size: 0.72rem; font-family: sans-serif; color: #374151;
+}
