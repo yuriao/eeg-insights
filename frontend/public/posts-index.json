@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "file": "2026-03-30-zhou2016.md",
+    "slug": "zhou2016",
+    "title": "Zhou 2016 Motor Imagery: EEG Motor Imagery Analysis",
+    "date": "2026-03-30",
+    "dataset": "Zhou2016",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.534"
+  }
+]
