@@ -26,15 +26,16 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install & build
         working-directory: frontend
+        env:
+          VITE_GH_TOKEN: ${{ secrets.VITE_GH_TOKEN }}
         run: |
           npm install
           npm run build
 
-      # Copy markdown posts + figures into the dist for GitHub Pages
       - name: Copy posts and figures into dist
         run: |
           mkdir -p frontend/dist/posts frontend/dist/figures
@@ -47,3 +48,4 @@ jobs:
           path: frontend/dist/
       - id: deployment
         uses: actions/deploy-pages@v4
+
