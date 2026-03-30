@@ -8,5 +8,15 @@
     "paradigm": "motor_imagery",
     "subjects": "1",
     "mean_accuracy": "0.534"
+  },
+  {
+    "file": "2026-03-30-bnci2015-001.md",
+    "slug": "bnci2015-001",
+    "title": "BNCI 2015-001: EEG Motor Imagery Analysis",
+    "date": "2026-03-30",
+    "dataset": "BNCI2015_001",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.997"
   }
 ]
