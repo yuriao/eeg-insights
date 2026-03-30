@@ -18,6 +18,8 @@ jobs:
   analyze:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -61,3 +63,4 @@ jobs:
           git add posts/ frontend/public/
           git diff --staged --quiet || git commit -m "analysis: $(date +%Y-%m-%d) automated EEG report"
           git push
+
