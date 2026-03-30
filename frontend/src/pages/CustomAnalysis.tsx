@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import type { PostMeta } from '../types'
 
 const GH_TOKEN  = import.meta.env.VITE_GH_TOKEN as string | undefined
@@ -158,7 +158,6 @@ export default function CustomAnalysis() {
   const [code, setCode]             = useState(DEFAULT_CODE)
   const [name, setName]             = useState('')
   const [description, setDesc]      = useState('')
-  const [selectedSaved, setSelected]= useState<string>('')
   const [dataset, setDataset]       = useState('BNCI2015_001')
   const [posts, setPosts]           = useState<PostMeta[]>([])
   const [rerunSlug, setRerunSlug]   = useState('')
@@ -201,7 +200,6 @@ export default function CustomAnalysis() {
     setCode(a.code)
     setName(a.name)
     setDesc(a.description)
-    setSelected(key)
     setTab('editor')
   }
 
