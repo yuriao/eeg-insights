@@ -306,7 +306,11 @@ Chance level: 50%
 
 def generate_discussion(meta: dict, mean_acc: float, best_acc: float,
                         openai_key: str | None) -> str:
-    if not openai_key:
+    import os
+    api_key = openai_key or os.environ.get('MOONSHOT_API_KEY')
+    base_url = os.environ.get('OPENAI_BASE_URL', 'https://api.moonshot.ai/v1')
+
+    if not api_key:
         # Fallback template
         perf = 'above chance' if mean_acc > 0.6 else 'near chance'
         return (
@@ -320,7 +324,7 @@ def generate_discussion(meta: dict, mean_acc: float, best_acc: float,
         )
 
     from openai import OpenAI
-    client = OpenAI(api_key=openai_key)
+    client = OpenAI(api_key=api_key, base_url=base_url)
     prompt = (
         f"Write a 3-paragraph scientific discussion for an EEG motor imagery analysis report. "
         f"Dataset: {meta['name']}. Mean CSP+LDA decoding accuracy: {mean_acc:.1%}. "
@@ -329,9 +333,9 @@ def generate_discussion(meta: dict, mean_acc: float, best_acc: float,
         f"(3) future directions. Be precise, use neuroscience terminology. ~150 words."
     )
     resp = client.chat.completions.create(
-        model='gpt-4o-mini',
+        model='moonshot-v1-8k',
         messages=[{'role': 'user', 'content': prompt}],
-        max_tokens=300,
+        max_tokens=400,
     )
     return resp.choices[0].message.content.strip()
 
