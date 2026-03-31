@@ -46,6 +46,8 @@ jobs:
       - name: Run analysis
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
           MNE_DATA: /tmp/mne_data
         run: |
           mkdir -p /tmp/mne_data
