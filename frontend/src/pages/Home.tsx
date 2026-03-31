@@ -67,8 +67,8 @@ export default function Home() {
             <div className="stat-pill">📊 {posts.length} reports</div>
             <div className="stat-pill">🧠 {new Set(posts.map(p => p.dataset)).size} datasets</div>
             <div className="stat-pill">
-              🎯 Avg {posts.length > 0
-                ? (posts.reduce((s, p) => s + acc(p), 0) / posts.length * 100).toFixed(0)
+              🎯 Avg {posts.filter(p => p.mean_accuracy).length > 0
+                ? (posts.filter(p => p.mean_accuracy).reduce((s, p) => s + acc(p), 0) / posts.filter(p => p.mean_accuracy).length * 100).toFixed(0)
                 : '—'}% accuracy
             </div>
           </div>
@@ -130,10 +130,17 @@ export default function Home() {
             </div>
             <div className="post-title">{post.title}</div>
             <div className="post-excerpt">
-              ERP analysis · ERDS time-frequency maps · CSP+LDA decoding
+              {post.paradigm === 'preprocessing'
+                ? 'Signal preprocessing · Filtering · ICA · Artifact removal · Epoching'
+                : 'ERP analysis · ERDS time-frequency maps · CSP+LDA decoding'}
             </div>
-            <div>
-              {post.mean_accuracy && (
+            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 8 }}>
+              {post.paradigm === 'preprocessing' && (
+                <span className="post-badge" style={{ background: '#eff6ff', color: '#1d4ed8' }}>
+                  📖 Tutorial
+                </span>
+              )}
+              {post.mean_accuracy && post.paradigm !== 'preprocessing' && (
                 <span className={`post-badge ${isGood(post) ? '' : 'warn'}`}>
                   {isGood(post) ? '✓' : '~'} {(acc(post) * 100).toFixed(0)}% decoding accuracy
                 </span>
