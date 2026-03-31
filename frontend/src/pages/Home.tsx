@@ -9,7 +9,7 @@ async function triggerAnalysis(): Promise<{ ok: boolean; message: string }> {
     return { ok: false, message: 'Trigger token not configured.' }
   }
   const res = await fetch(
-    'https://api.github.com/repos/yuriao/eeg-insights/actions/workflows/analyze.yml/dispatches',
+    'https://api.github.com/repos/yuriao/eeg-insights/actions/workflows/daily.yml/dispatches',
     {
       method: 'POST',
       headers: {
