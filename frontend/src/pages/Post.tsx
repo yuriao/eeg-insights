@@ -63,8 +63,12 @@ export default function Post() {
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{
-            img: ({ src, alt }) => (
-              <img src={src} alt={alt ?? ''} style={{ maxWidth: '100%' }} />
+            img: ({ src, alt }) => {
+              const fixedSrc = src?.startsWith('/figures/')
+                ? `/eeg-insights${src}`
+                : src
+              return <img src={fixedSrc} alt={alt ?? ''} style={{ maxWidth: '100%', borderRadius: 6 }} />
+            }
             ),
           }}
         >
