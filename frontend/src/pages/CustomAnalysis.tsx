@@ -137,7 +137,7 @@ async function triggerRun(
   if (rerunSlug) inputs.rerun_slug = rerunSlug
 
   const res = await fetch(
-    `https://api.github.com/repos/${REPO}/actions/workflows/analyze.yml/dispatches`,
+    `https://api.github.com/repos/${REPO}/actions/workflows/daily.yml/dispatches`,
     {
       method: 'POST',
       headers: {
