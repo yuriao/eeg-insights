@@ -1,5 +1,15 @@
 [
   {
+    "file": "2026-03-31-eeg-preprocessing-guide.md",
+    "slug": "eeg-preprocessing-guide",
+    "title": "EEG Signal Preprocessing: A Practical Guide",
+    "date": "2026-03-31",
+    "dataset": "Tutorial",
+    "paradigm": "preprocessing",
+    "subjects": "",
+    "mean_accuracy": ""
+  },
+  {
     "file": "2026-03-30-zhou2016.md",
     "slug": "zhou2016",
     "title": "Zhou 2016 Motor Imagery: EEG Motor Imagery Analysis",
