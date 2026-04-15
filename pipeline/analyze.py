@@ -93,6 +93,12 @@ ALGORITHMS = [
         'year': '2015–2022',
         'desc': 'xDAWN spatial filtering (designed for P300 ERP enhancement) followed by Riemannian covariance classification. Best-in-class for P300 speller paradigms.',
     },
+    {
+        'id':   'sst',
+        'name': 'SpatioSpectral Transformer (SST)',
+        'year': '2025 (novel — this project)',
+        'desc': 'Novel transformer architecture with three innovations: (1) Multi-scale spectral tokenisation across theta/mu/beta bands; (2) Dual-stream spatial+temporal attention per band; (3) Cross-band attention allowing frequency bands to attend to each other with learned gating. Targets kappa > 0.78 on BCI Competition IV 2a.',
+    },
 ]
 
 
@@ -500,6 +506,148 @@ def run_xdawn_riemannian(epochs, slug: str) -> dict:
     }
 
 
+
+def run_sst(epochs, slug: str) -> dict:
+    """
+    SpatioSpectral Transformer — novel dual-stream cross-band attention model.
+    Trains on the given epochs using 5-fold cross-validation.
+    """
+    import sys, os
+    sys.path.insert(0, str(ROOT / 'pipeline'))
+
+    from models.sst import train_sst, evaluate_sst, SpatioSpectralTransformer
+    from sklearn.model_selection import StratifiedKFold
+    from sklearn.preprocessing import LabelEncoder
+
+    X = epochs.get_data(copy=False)     # [n_trials, n_channels, n_timepoints]
+    y_raw = epochs.events[:, 2]
+    le = LabelEncoder()
+    y  = le.fit_transform(y_raw)
+    n_classes = len(np.unique(y))
+
+    # Normalise per-trial per-channel
+    mu  = X.mean(axis=2, keepdims=True)
+    std = X.std(axis=2, keepdims=True) + 1e-8
+    X   = (X - mu) / std
+
+    print(f"SST training: {X.shape}, {n_classes} classes")
+
+    # 5-fold cross-validation
+    skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+    fold_accs, fold_kappas = [], []
+    fold_histories = []
+
+    for fold, (tr_idx, val_idx) in enumerate(skf.split(X, y)):
+        print(f"  Fold {fold+1}/5")
+        model, history = train_sst(
+            X[tr_idx], y[tr_idx],
+            X[val_idx], y[val_idx],
+            n_classes=n_classes,
+            d_model=64, n_heads=4, n_layers=3,
+            dropout=0.25, lr=3e-4,
+            epochs=150, batch_size=32, patience=25,
+        )
+        result = evaluate_sst(model, X[val_idx], y[val_idx])
+        fold_accs.append(result['accuracy'])
+        fold_kappas.append(result['kappa'])
+        fold_histories.append(history)
+        print(f"    fold {fold+1}: acc={result['accuracy']:.3f} kappa={result['kappa']:.3f}")
+
+    mean_acc   = float(np.mean(fold_accs))
+    mean_kappa = float(np.mean(fold_kappas))
+    std_kappa  = float(np.std(fold_kappas))
+
+    print(f"SST 5-fold: accuracy={mean_acc:.3f}  kappa={mean_kappa:.3f} ± {std_kappa:.3f}")
+
+    # ── Training curve figure ─────────────────────────────────────────────────
+    fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+
+    for h in fold_histories:
+        epochs_x = range(1, len(h['val_kappa']) + 1)
+        axes[0].plot(epochs_x, h['val_kappa'], alpha=0.5, linewidth=1)
+        axes[1].plot(epochs_x, h['train_loss'], alpha=0.5, linewidth=1)
+
+    # Mean curve
+    max_len = max(len(h['val_kappa']) for h in fold_histories)
+    mean_k  = [np.mean([h['val_kappa'][i] if i < len(h['val_kappa']) else h['val_kappa'][-1]
+                        for h in fold_histories]) for i in range(max_len)]
+    axes[0].plot(range(1, max_len+1), mean_k, 'k-', linewidth=2.5, label=f'Mean κ={mean_kappa:.3f}')
+    axes[0].axhline(0.57, color='red',   linestyle='--', alpha=0.7, label='BCI Baseline (0.57)')
+    axes[0].axhline(0.72, color='green', linestyle='--', alpha=0.7, label='EEG-Conformer (0.72)')
+    axes[0].set_xlabel('Epoch'); axes[0].set_ylabel("Cohen's Kappa")
+    axes[0].set_title('SST — Validation Kappa (5-fold CV)')
+    axes[0].legend(fontsize=8); axes[0].grid(alpha=0.3)
+
+    axes[1].set_xlabel('Epoch'); axes[1].set_ylabel('Cross-Entropy Loss')
+    axes[1].set_title('SST — Training Loss (5-fold CV)')
+    axes[1].grid(alpha=0.3)
+
+    fig.suptitle(f'SpatioSpectral Transformer — BCI Competition IV 2a\n'
+                 f'Accuracy: {mean_acc:.1%}  Kappa: {mean_kappa:.3f} ± {std_kappa:.3f}',
+                 fontsize=11, fontweight='bold')
+    plt.tight_layout()
+
+    fig_path = FIGURES_DIR / f'{slug}_sst.png'
+    plt.savefig(fig_path, dpi=150, bbox_inches='tight')
+    plt.close()
+
+    # ── Per-fold comparison bar chart ─────────────────────────────────────────
+    fig2, ax = plt.subplots(figsize=(8, 4))
+    x   = np.arange(5)
+    bars = ax.bar(x, fold_kappas, color=['#3b82f6']*5, alpha=0.8, edgecolor='white')
+    ax.axhline(0.57, color='red',   linestyle='--', linewidth=1.5, label='BCI Baseline')
+    ax.axhline(0.72, color='green', linestyle='--', linewidth=1.5, label='EEG-Conformer')
+    ax.axhline(mean_kappa, color='black', linestyle='-', linewidth=2, label=f'SST Mean ({mean_kappa:.3f})')
+    for bar, k in zip(bars, fold_kappas):
+        ax.text(bar.get_x() + bar.get_width()/2, k + 0.01, f'{k:.3f}',
+                ha='center', fontsize=9, fontweight='bold')
+    ax.set_xticks(x); ax.set_xticklabels([f'Fold {i+1}' for i in range(5)])
+    ax.set_ylabel("Cohen's Kappa"); ax.set_title('Per-Fold Kappa — SST vs Baselines')
+    ax.legend(fontsize=8); ax.grid(axis='y', alpha=0.3)
+    plt.tight_layout()
+
+    fig2_path = FIGURES_DIR / f'{slug}_sst_folds.png'
+    plt.savefig(fig2_path, dpi=150, bbox_inches='tight')
+    plt.close()
+
+    extra_md = f"""
+### Per-Fold Results
+
+| Fold | Accuracy | Kappa |
+|------|----------|-------|
+""" + "\n".join(
+        f"| {i+1} | {fold_accs[i]:.1%} | {fold_kappas[i]:.3f} |"
+        for i in range(len(fold_accs))
+    ) + f"""
+| **Mean** | **{mean_acc:.1%}** | **{mean_kappa:.3f} ± {std_kappa:.3f}** |
+
+![Per-fold kappa](/figures/{slug}_sst_folds.png)
+
+### Comparison to Baselines
+
+| Model | Kappa | Improvement |
+|-------|-------|-------------|
+| BCI Competition IV Baseline | 0.57 | — |
+| EEGNet | ~0.61 | +0.04 |
+| EEG-Conformer | ~0.72 | +0.15 |
+| **SST (this work)** | **{mean_kappa:.3f}** | **+{mean_kappa-0.57:.3f}** |
+
+### Architecture Highlights
+
+- **Multi-Scale Spectral Tokeniser** — bandpass into theta (4–8 Hz), mu (8–13 Hz), beta (13–30 Hz)
+- **Dual-Stream Transformer** — parallel spatial + temporal attention applied per band
+- **Cross-Band Attention** — novel mechanism: bands attend to each other with learned gating
+- Model size: ~{SpatioSpectralTransformer(22, 1001, 4).n_params:,} parameters
+"""
+
+    return {
+        'mean_accuracy': mean_acc,
+        'mean_kappa':    mean_kappa,
+        'figure_path':   f'/figures/{slug}_sst.png',
+        'extra_md':      extra_md,
+    }
+
+
 ALGO_RUNNERS = {
     'csp_lda':            run_csp_lda,
     'erp':                run_erp,
@@ -509,6 +657,7 @@ ALGO_RUNNERS = {
     'tangent_space_svm':  run_tangent_space_svm,
     'shrinkage_lda':      run_shrinkage_lda,
     'xdawn_riemannian':   run_xdawn_riemannian,
+    'sst':                run_sst,
 }
 
 
