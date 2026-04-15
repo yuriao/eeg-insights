@@ -1,5 +1,20 @@
 [
   {
+    "file": "2026-04-15-sst-eeg-motor-imagery.md",
+    "slug": "spatiotemporal-transformer-sst-eeg-motor-imagery",
+    "title": "SpatioSpectral Transformer (SST): Novel Cross-Band Attention for EEG Motor Imagery",
+    "date": "2026-04-15",
+    "dataset": "BNCI2014_001",
+    "paradigm": "motor_imagery",
+    "subjects": "9",
+    "mean_accuracy": "0.810",
+    "tags": [
+      "transformer",
+      "novel",
+      "cross-band attention"
+    ]
+  },
+  {
     "file": "2026-04-15-bci-competition-iv-motor-imagery-pipeline.md",
     "slug": "bci-competition-iv-motor-imagery-pipeline",
     "title": "Beating the BCI Competition IV Baseline: CSP+LDA, EEGNet, and Transfer Learning",
@@ -8,7 +23,13 @@
     "paradigm": "motor_imagery",
     "subjects": "9",
     "mean_accuracy": "0.805",
-    "tags": ["benchmark", "motor imagery", "CSP", "EEGNet", "transfer learning"]
+    "tags": [
+      "benchmark",
+      "motor imagery",
+      "CSP",
+      "EEGNet",
+      "transfer learning"
+    ]
   },
   {
     "file": "2026-03-31-eeg-preprocessing-guide.md",
