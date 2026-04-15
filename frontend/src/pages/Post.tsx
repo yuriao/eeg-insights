@@ -132,7 +132,7 @@ function CodeCellView({ cell }: { cell: CodeCell }) {
 
 // ── Notebook toolbar (Colab + download buttons) ───────────────────────────────
 
-function NotebookToolbar({ meta, slug }: { meta: PostMeta; slug: string }) {
+function NotebookToolbar({ meta: _meta, slug }: { meta: PostMeta; slug: string }) {
   const notebookUrl = `https://raw.githubusercontent.com/yuriao/eeg-insights/main/notebooks/${slug}.ipynb`
   const colabUrl    = `https://colab.research.google.com/github/yuriao/eeg-insights/blob/main/notebooks/${slug}.ipynb`
 
