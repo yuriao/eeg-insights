@@ -70,6 +70,16 @@ jobs:
         run: |
           git config user.name  "EEG Insights Bot"
           git config user.email "bot@eeg-insights"
-          git add posts/ frontend/public/ pipeline/rotation_state.json pipeline/custom_analyses.json 2>/dev/null || true
-          git diff --staged --quiet || git commit -m "analysis: $(date +%Y-%m-%d) automated EEG report"
-          git push
+          # Stage all generated files
+          git add posts/ frontend/public/ pipeline/rotation_state.json 2>/dev/null || true
+          # Show what changed (debug)
+          git diff --staged --stat || true
+          # Commit only if there are staged changes
+          if ! git diff --staged --quiet; then
+            git commit -m "analysis: $(date +%Y-%m-%d) automated EEG report"
+            # Pull rebase to avoid conflicts if main was updated concurrently
+            git pull --rebase origin main || true
+            git push
+          else
+            echo "No changes to commit — post may already exist for today"
+          fi
