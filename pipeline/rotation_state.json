@@ -1,5 +1,54 @@
 {
-  "algo_index": 0,
-  "dataset_index": 0,
-  "runs": []
+  "algo_index": 1,
+  "dataset_index": 1,
+  "runs": [
+    {
+      "date": "2026-04-15",
+      "dataset": "BNCI2014_001",
+      "algo": "csp_lda",
+      "slug": "bnci2014-001-csp-lda"
+    },
+    {
+      "date": "2026-04-14",
+      "dataset": "BNCI2014_001",
+      "algo": "csp_lda",
+      "slug": "bnci2014-001-csp-lda"
+    },
+    {
+      "date": "2026-04-13",
+      "dataset": "BNCI2015_001",
+      "algo": "erp",
+      "slug": "bnci2015-001-erp"
+    },
+    {
+      "date": "2026-04-12",
+      "dataset": "Zhou2016",
+      "algo": "erds",
+      "slug": "zhou2016-erds"
+    },
+    {
+      "date": "2026-04-11",
+      "dataset": "BNCI2014_001",
+      "algo": "riemann_mdm",
+      "slug": "bnci2014-001-riemann-mdm"
+    },
+    {
+      "date": "2026-04-10",
+      "dataset": "BNCI2014_004",
+      "algo": "fbcsp",
+      "slug": "bnci2014-004-fbcsp"
+    },
+    {
+      "date": "2026-04-09",
+      "dataset": "Schirrmeister2017",
+      "algo": "tangent_space_svm",
+      "slug": "schirrmeister2017-tangent-space-svm"
+    },
+    {
+      "date": "2026-04-08",
+      "dataset": "BNCI2015_001",
+      "algo": "shrinkage_lda",
+      "slug": "bnci2015-001-shrinkage-lda"
+    }
+  ]
 }
