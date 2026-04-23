@@ -785,7 +785,7 @@ def main():
 
     # Write post + update index
     print('Writing post...')
-    write_post(meta, algo, result, openai_key, date_str)
+    post_file = write_post(meta, algo, result, openai_key, date_str)
     update_index()
     write_notebook(post_file, slug)
     save_state(state)
