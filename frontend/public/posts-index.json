@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-04-24-bnci2015-001-erds.md",
+    "slug": "bnci2015-001-erds",
+    "title": "BNCI 2015-001 \u2014 ERDS Time-Frequency Mapping",
+    "date": "2026-04-24",
+    "dataset": "BNCI2015_001",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.000",
+    "algorithm": "erds"
+  },
+  {
     "file": "2026-04-15-sst-eeg-motor-imagery.md",
     "slug": "spatiotemporal-transformer-sst-eeg-motor-imagery",
     "title": "SpatioSpectral Transformer (SST): A Novel Architecture for EEG Motor Imagery",
