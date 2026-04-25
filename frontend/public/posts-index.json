@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-04-25-zhou2016-riemann-mdm.md",
+    "slug": "zhou2016-riemann-mdm",
+    "title": "Zhou 2016 Motor Imagery \u2014 Riemannian Geometry \u2014 MDM Classifier",
+    "date": "2026-04-25",
+    "dataset": "Zhou2016",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.534",
+    "algorithm": "riemann_mdm"
+  },
+  {
     "file": "2026-04-24-bnci2015-001-erds.md",
     "slug": "bnci2015-001-erds",
     "title": "BNCI 2015-001 \u2014 ERDS Time-Frequency Mapping",
