@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-04-26-schirrmeister2017-fbcsp.md",
+    "slug": "schirrmeister2017-fbcsp",
+    "title": "Schirrmeister 2017 \u2014 Filter Bank CSP (FBCSP)",
+    "date": "2026-04-26",
+    "dataset": "Schirrmeister2017",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.591",
+    "algorithm": "fbcsp"
+  },
+  {
     "file": "2026-04-25-zhou2016-riemann-mdm.md",
     "slug": "zhou2016-riemann-mdm",
     "title": "Zhou 2016 Motor Imagery \u2014 Riemannian Geometry \u2014 MDM Classifier",
