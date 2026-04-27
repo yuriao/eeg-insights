@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-04-27-bnci2014-001-tangent-space-svm.md",
+    "slug": "bnci2014-001-tangent-space-svm",
+    "title": "BCI Competition IV 2a \u2014 Tangent Space + SVM (TS-SVM)",
+    "date": "2026-04-27",
+    "dataset": "BNCI2014_001",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.965",
+    "algorithm": "tangent_space_svm"
+  },
+  {
     "file": "2026-04-26-schirrmeister2017-fbcsp.md",
     "slug": "schirrmeister2017-fbcsp",
     "title": "Schirrmeister 2017 \u2014 Filter Bank CSP (FBCSP)",
