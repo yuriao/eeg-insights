@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-04-28-bnci2014-004-shrinkage-lda.md",
+    "slug": "bnci2014-004-shrinkage-lda",
+    "title": "BCI Competition IV 2b \u2014 Shrinkage LDA (sLDA / SWLDA)",
+    "date": "2026-04-28",
+    "dataset": "BNCI2014_004",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.567",
+    "algorithm": "shrinkage_lda"
+  },
+  {
     "file": "2026-04-27-bnci2014-001-tangent-space-svm.md",
     "slug": "bnci2014-001-tangent-space-svm",
     "title": "BCI Competition IV 2a \u2014 Tangent Space + SVM (TS-SVM)",
