@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-04-29-bnci2015-001-xdawn-riemannian.md",
+    "slug": "bnci2015-001-xdawn-riemannian",
+    "title": "BNCI 2015-001 \u2014 xDAWN + Riemannian (P300/ERP decoding)",
+    "date": "2026-04-29",
+    "dataset": "BNCI2015_001",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "1.000",
+    "algorithm": "xdawn_riemannian"
+  },
+  {
     "file": "2026-04-28-bnci2014-004-shrinkage-lda.md",
     "slug": "bnci2014-004-shrinkage-lda",
     "title": "BCI Competition IV 2b \u2014 Shrinkage LDA (sLDA / SWLDA)",
