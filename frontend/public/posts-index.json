@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-04-30-zhou2016-csp-lda.md",
+    "slug": "zhou2016-csp-lda",
+    "title": "Zhou 2016 Motor Imagery \u2014 CSP + LDA",
+    "date": "2026-04-30",
+    "dataset": "Zhou2016",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.534",
+    "algorithm": "csp_lda"
+  },
+  {
     "file": "2026-04-29-bnci2015-001-xdawn-riemannian.md",
     "slug": "bnci2015-001-xdawn-riemannian",
     "title": "BNCI 2015-001 \u2014 xDAWN + Riemannian (P300/ERP decoding)",
