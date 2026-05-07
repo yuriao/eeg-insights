@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-05-07-schirrmeister2017-shrinkage-lda.md",
+    "slug": "schirrmeister2017-shrinkage-lda",
+    "title": "Schirrmeister 2017 \u2014 Shrinkage LDA (sLDA / SWLDA)",
+    "date": "2026-05-07",
+    "dataset": "Schirrmeister2017",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.554",
+    "algorithm": "shrinkage_lda"
+  },
+  {
     "file": "2026-05-05-zhou2016-tangent-space-svm.md",
     "slug": "zhou2016-tangent-space-svm",
     "title": "Zhou 2016 Motor Imagery \u2014 Tangent Space + SVM (TS-SVM)",
