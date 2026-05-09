@@ -473,7 +473,7 @@ def run_xdawn_riemannian(epochs, slug: str) -> dict:
     X, y = X[mask], y[mask]
 
     pipeline = Pipeline([
-        ('xdawn_cov', XdawnCovariances(nfilter=3, estimator='oas')),
+        ('xdawn_cov', XdawnCovariances(nfilter=3, estimator='oas', xdawn_estimator='oas')),
         ('ts',        TangentSpace(metric='riemann')),
         ('lr',        LogisticRegression(max_iter=500)),
     ])
