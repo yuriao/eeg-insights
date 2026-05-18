@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-05-18-schirrmeister2017-csp-lda.md",
+    "slug": "schirrmeister2017-csp-lda",
+    "title": "Schirrmeister 2017 \u2014 CSP + LDA",
+    "date": "2026-05-18",
+    "dataset": "Schirrmeister2017",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.537",
+    "algorithm": "csp_lda"
+  },
+  {
     "file": "2026-05-17-zhou2016-xdawn-riemannian.md",
     "slug": "zhou2016-xdawn-riemannian",
     "title": "Zhou 2016 Motor Imagery \u2014 xDAWN + Riemannian (P300/ERP decoding)",
