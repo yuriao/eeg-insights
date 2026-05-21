@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-05-21-bnci2015-001-riemann-mdm.md",
+    "slug": "bnci2015-001-riemann-mdm",
+    "title": "BNCI 2015-001 \u2014 Riemannian Geometry \u2014 MDM Classifier",
+    "date": "2026-05-21",
+    "dataset": "BNCI2015_001",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "1.000",
+    "algorithm": "riemann_mdm"
+  },
+  {
     "file": "2026-05-20-bnci2014-004-erds.md",
     "slug": "bnci2014-004-erds",
     "title": "BCI Competition IV 2b \u2014 ERDS Time-Frequency Mapping",
