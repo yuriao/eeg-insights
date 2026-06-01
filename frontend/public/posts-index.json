@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-06-01-bnci2014-004-fbcsp.md",
+    "slug": "bnci2014-004-fbcsp",
+    "title": "BCI Competition IV 2b \u2014 Filter Bank CSP (FBCSP)",
+    "date": "2026-06-01",
+    "dataset": "BNCI2014_004",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.601",
+    "algorithm": "fbcsp"
+  },
+  {
     "file": "2026-05-31-bnci2014-001-riemann-mdm.md",
     "slug": "bnci2014-001-riemann-mdm",
     "title": "BCI Competition IV 2a \u2014 Riemannian Geometry \u2014 MDM Classifier",
