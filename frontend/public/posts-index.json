@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-06-03-zhou2016-shrinkage-lda.md",
+    "slug": "zhou2016-shrinkage-lda",
+    "title": "Zhou 2016 Motor Imagery \u2014 Shrinkage LDA (sLDA / SWLDA)",
+    "date": "2026-06-03",
+    "dataset": "Zhou2016",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.519",
+    "algorithm": "shrinkage_lda"
+  },
+  {
     "file": "2026-06-02-bnci2015-001-tangent-space-svm.md",
     "slug": "bnci2015-001-tangent-space-svm",
     "title": "BNCI 2015-001 \u2014 Tangent Space + SVM (TS-SVM)",
