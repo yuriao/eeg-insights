@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-06-25-schirrmeister2017-riemann-mdm.md",
+    "slug": "schirrmeister2017-riemann-mdm",
+    "title": "Schirrmeister 2017 \u2014 Riemannian Geometry \u2014 MDM Classifier",
+    "date": "2026-06-25",
+    "dataset": "Schirrmeister2017",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.583",
+    "algorithm": "riemann_mdm"
+  },
+  {
     "file": "2026-06-24-zhou2016-erds.md",
     "slug": "zhou2016-erds",
     "title": "Zhou 2016 Motor Imagery \u2014 ERDS Time-Frequency Mapping",
