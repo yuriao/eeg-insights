@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-07-02-bnci2014-004-erds.md",
+    "slug": "bnci2014-004-erds",
+    "title": "BCI Competition IV 2b \u2014 ERDS Time-Frequency Mapping",
+    "date": "2026-07-02",
+    "dataset": "BNCI2014_004",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.000",
+    "algorithm": "erds"
+  },
+  {
     "file": "2026-07-01-bnci2014-001-erp.md",
     "slug": "bnci2014-001-erp",
     "title": "BCI Competition IV 2a \u2014 Event-Related Potential (ERP)",
