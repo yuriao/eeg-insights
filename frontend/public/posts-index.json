@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-07-05-schirrmeister2017-tangent-space-svm.md",
+    "slug": "schirrmeister2017-tangent-space-svm",
+    "title": "Schirrmeister 2017 \u2014 Tangent Space + SVM (TS-SVM)",
+    "date": "2026-07-05",
+    "dataset": "Schirrmeister2017",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.717",
+    "algorithm": "tangent_space_svm"
+  },
+  {
     "file": "2026-07-04-zhou2016-fbcsp.md",
     "slug": "zhou2016-fbcsp",
     "title": "Zhou 2016 Motor Imagery \u2014 Filter Bank CSP (FBCSP)",
