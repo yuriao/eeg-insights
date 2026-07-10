@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-07-10-zhou2016-erp.md",
+    "slug": "zhou2016-erp",
+    "title": "Zhou 2016 Motor Imagery \u2014 Event-Related Potential (ERP)",
+    "date": "2026-07-10",
+    "dataset": "Zhou2016",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.000",
+    "algorithm": "erp"
+  },
+  {
     "file": "2026-07-08-bnci2015-001-csp-lda.md",
     "slug": "bnci2015-001-csp-lda",
     "title": "BNCI 2015-001 \u2014 CSP + LDA",
