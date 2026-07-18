@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-07-18-bnci2014-004-erp.md",
+    "slug": "bnci2014-004-erp",
+    "title": "BCI Competition IV 2b \u2014 Event-Related Potential (ERP)",
+    "date": "2026-07-18",
+    "dataset": "BNCI2014_004",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.000",
+    "algorithm": "erp"
+  },
+  {
     "file": "2026-07-17-bnci2014-001-csp-lda.md",
     "slug": "bnci2014-001-csp-lda",
     "title": "BCI Competition IV 2a \u2014 CSP + LDA",
