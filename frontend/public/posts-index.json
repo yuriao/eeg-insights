@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-07-26-schirrmeister2017-erp.md",
+    "slug": "schirrmeister2017-erp",
+    "title": "Schirrmeister 2017 \u2014 Event-Related Potential (ERP)",
+    "date": "2026-07-26",
+    "dataset": "Schirrmeister2017",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.000",
+    "algorithm": "erp"
+  },
+  {
     "file": "2026-07-25-zhou2016-csp-lda.md",
     "slug": "zhou2016-csp-lda",
     "title": "Zhou 2016 Motor Imagery \u2014 CSP + LDA",
