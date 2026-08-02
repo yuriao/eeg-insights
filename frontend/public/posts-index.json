@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-08-02-bnci2014-004-csp-lda.md",
+    "slug": "bnci2014-004-csp-lda",
+    "title": "BCI Competition IV 2b \u2014 CSP + LDA",
+    "date": "2026-08-02",
+    "dataset": "BNCI2014_004",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.565",
+    "algorithm": "csp_lda"
+  },
+  {
     "file": "2026-08-01-bnci2014-001-xdawn-riemannian.md",
     "slug": "bnci2014-001-xdawn-riemannian",
     "title": "BCI Competition IV 2a \u2014 xDAWN + Riemannian (P300/ERP decoding)",
