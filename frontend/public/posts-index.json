@@ -1,5 +1,16 @@
 [
   {
+    "file": "2026-08-27-schirrmeister2017-xdawn-riemannian.md",
+    "slug": "schirrmeister2017-xdawn-riemannian",
+    "title": "Schirrmeister 2017 \u2014 xDAWN + Riemannian (P300/ERP decoding)",
+    "date": "2026-08-27",
+    "dataset": "Schirrmeister2017",
+    "paradigm": "motor_imagery",
+    "subjects": "1",
+    "mean_accuracy": "0.879",
+    "algorithm": "xdawn_riemannian"
+  },
+  {
     "file": "2026-08-26-zhou2016-shrinkage-lda.md",
     "slug": "zhou2016-shrinkage-lda",
     "title": "Zhou 2016 Motor Imagery \u2014 Shrinkage LDA (sLDA / SWLDA)",
